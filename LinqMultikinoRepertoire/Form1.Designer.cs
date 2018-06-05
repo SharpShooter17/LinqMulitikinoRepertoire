@@ -36,6 +36,8 @@
             this.multikinoData = new System.Windows.Forms.DataGridView();
             this.searchText2 = new System.Windows.Forms.TextBox();
             this.comboBoxType2 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxSortBy = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.multikinoData)).BeginInit();
             this.SuspendLayout();
@@ -50,17 +52,19 @@
             // comboBoxType1
             // 
             this.comboBoxType1.FormattingEnabled = true;
+            this.comboBoxType1.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.comboBoxType1.Items.AddRange(new object[] {
-            "None",
             "Cinema",
             "Location",
-            "Title",
-            "Year",
+            "None",
             "Time",
-            "Version"});
+            "Title",
+            "Version",
+            "Year"});
             this.comboBoxType1.Location = new System.Drawing.Point(352, 11);
             this.comboBoxType1.Name = "comboBoxType1";
             this.comboBoxType1.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxType1.Sorted = true;
             this.comboBoxType1.TabIndex = 1;
             // 
             // searchButton
@@ -87,10 +91,10 @@
             this.multikinoData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.multikinoData.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.multikinoData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.multikinoData.Location = new System.Drawing.Point(12, 38);
+            this.multikinoData.Location = new System.Drawing.Point(17, 65);
             this.multikinoData.Name = "multikinoData";
             this.multikinoData.ReadOnly = true;
-            this.multikinoData.Size = new System.Drawing.Size(984, 679);
+            this.multikinoData.Size = new System.Drawing.Size(984, 652);
             this.multikinoData.TabIndex = 3;
             // 
             // searchText2
@@ -104,23 +108,52 @@
             // 
             this.comboBoxType2.FormattingEnabled = true;
             this.comboBoxType2.Items.AddRange(new object[] {
-            "None",
             "Cinema",
             "Location",
-            "Title",
-            "Year",
+            "None",
             "Time",
-            "Version"});
+            "Title",
+            "Version",
+            "Year"});
             this.comboBoxType2.Location = new System.Drawing.Point(783, 11);
             this.comboBoxType2.Name = "comboBoxType2";
             this.comboBoxType2.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxType2.Sorted = true;
             this.comboBoxType2.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Sort By:";
+            // 
+            // comboBoxSortBy
+            // 
+            this.comboBoxSortBy.FormattingEnabled = true;
+            this.comboBoxSortBy.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.comboBoxSortBy.Items.AddRange(new object[] {
+            "Cinema",
+            "Location",
+            "Time",
+            "Title",
+            "Version",
+            "Year"});
+            this.comboBoxSortBy.Location = new System.Drawing.Point(62, 38);
+            this.comboBoxSortBy.Name = "comboBoxSortBy";
+            this.comboBoxSortBy.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSortBy.Sorted = true;
+            this.comboBoxSortBy.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.comboBoxSortBy);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxType2);
             this.Controls.Add(this.searchText2);
             this.Controls.Add(this.multikinoData);
@@ -146,6 +179,8 @@
         private System.Windows.Forms.DataGridView multikinoData;
         private System.Windows.Forms.TextBox searchText2;
         private System.Windows.Forms.ComboBox comboBoxType2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxSortBy;
     }
 }
 

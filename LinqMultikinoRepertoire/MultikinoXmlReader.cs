@@ -19,18 +19,16 @@ namespace LinqMultikinoRepertoire
             this.Element = XElement.Load(url).Element("showing");
         }
 
-        public IEnumerable<XElement> FindByTitle(String title)
+        public IEnumerable<XElement> FindBy(String s1, String query1, String s2, String query2, String orderBy)
         {
-            var results = from items in Element.Elements("showing") where (string)items.Element("film_title") == title select items;
+            var results = from items in Element.Elements("showing") where (string)items.Element(query1) == s1 && (string)items.Element(query2) == s2 orderby (string)items.Element(orderBy) select items;
             return results;
         }
 
-        public IEnumerable<XElement> FindByYear(String year)
+        public IEnumerable<XElement> FindBy(String s1, String query1, String orderBy)
         {
-            var result = from items in Element.Elements("showing")
-                         where (string)items.Element("release_date") == year
-                         select items;
-            return result;
+            var results = from items in Element.Elements("showing") where (string)items.Element(query1) == s1 orderby (string)items.Element(orderBy) select items;
+            return results;
         }
 
         public static List<Event> ConvertToEventList(IEnumerable<XElement> elements)
@@ -48,6 +46,29 @@ namespace LinqMultikinoRepertoire
             }
 
             return events;
+        }
+
+        public static String Map(String str)
+        {
+            switch(str)
+            {
+                case "None":
+                    return "";
+                case "Cinema":
+                    return "cinema_name";
+                case "Location":
+                    return "location_name";
+                case "Title":
+                    return "film_title";
+                case "Year":
+                    return "release_date";
+                case "Time":
+                    return "event_time";
+                case "Version":
+                    return "version_name";
+            }
+
+            return "";
         }
     }
 }
